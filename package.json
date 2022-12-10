@@ -32,8 +32,8 @@
     "lint": "eslint --fix ./src --ext .js",
     "format": "prettier ./src --write",
     "dev": "node --watch ./src/index.js",
-    "dev:start": "concurrently \"node ./src/index.js\" \"json-server --watch db.json --port 3004\" ",
-    "start": "node ./src/index.js",
-    "start:api": "json-server --watch db.json --port 3004"
+    "start:dev": "concurrently \"node ./src/index.js\" \"json-server --watch db.json --port 3004\" ",
+    "build": "echo ",
+    "start": "node ./src/index.js"
   }
 }

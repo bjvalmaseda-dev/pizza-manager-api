@@ -65,6 +65,12 @@ const typeDefs = `
       toppings: [Topping]
     }
 
+    type Price{
+      large: Float
+      medium: Float
+      small: Float
+    }
+
     type Topping {
       name:String!
       price: Float!
@@ -72,6 +78,8 @@ const typeDefs = `
     
     type Query{
         allOrders: [Order]
+        allToppings:[Topping]
+        prices: Price
     }
 
     type Mutation{
@@ -89,6 +97,8 @@ const typeDefs = `
       orderAdded: Order!
       orderUpdated: Order!
     }
+
+    
 `
 
 const resolvers = {
@@ -96,6 +106,14 @@ const resolvers = {
     allOrders: async () => {
       const { data: orders } = await axios.get(`${BASE_API_URL}/orders`)
       return orders
+    },
+    allToppings: async () => {
+      const { data: toppings } = await axios.get(`${BASE_API_URL}/toppings`)
+      return toppings
+    },
+    prices: async () => {
+      const { data: price } = await axios.get(`${BASE_API_URL}/prices`)
+      return price
     },
   },
 
